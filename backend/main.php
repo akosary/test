@@ -9,7 +9,7 @@ class Main {
     private $connection;
     private $productTypes;
 
-    public function __construct($connection,$query = null ) {
+    public function __construct($connection) {
         $this->query = $query;
         $this->connection = $connection;
         $this->productTypes = [
@@ -20,7 +20,11 @@ class Main {
     }
 
     private function sqlPrepare() {
-        $sql = $this->connection->prepare($this->query);
+        $sqlQuery = 'SELECT p.SKU,p.name,p.price,pt.size,pt.type,pt.height,pt.width,pt.length,pt.weight
+        FROM products p
+        JOIN product_type pt ON p.type_id = pt.id;
+        ';
+        $sql = $this->connection->prepare($sqlQuery);
         $result = $sql->execute();
         try {
             return $sql;

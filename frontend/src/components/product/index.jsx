@@ -8,7 +8,7 @@ import "./index.css";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
 
-const baseURL = "http://scanditest.atwebpages.com/php/";
+const baseURL = "https://ecommercescanditest.000webhostapp.com/php/";
 
 const deleteRoute = "deleteProduct.php";
 const fetchData = async () => {

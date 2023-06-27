@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-const baseURL = "http://scanditest.atwebpages.com/php/";
+const baseURL = "https://ecommercescanditest.000webhostapp.com/php/";
 const route = "addProduct.php";
 
 const fetchData = async () => {
@@ -24,7 +24,7 @@ const fetchData = async () => {
 export default function AddProduct() {
   let navigate = useNavigate();
   const [data, setData] = useState([]);
-  const SKUs = data?.map((obj) => obj.SKU) ?? [];
+  const SKUs = data.map((obj) => obj.SKU);
   const [type, setType] = useState("");
   const [formValue, setFormValues] = useState({});
   const [validated, setValidated] = useState(false);
@@ -66,7 +66,7 @@ export default function AddProduct() {
     }
 
     if (name === "SKU") {
-      if (SKUs.includes(Number(value))) {
+      if (SKUs.includes(value)) {
         setValidateSKUStatus(true);
       } else {
         setValidateSKUStatus(false);
