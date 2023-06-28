@@ -42,4 +42,5 @@ class Database {
 }
 
 $db = new Database(DATABASE_host,DATABASE_username,DATABASE_password,DATABASE,DATABASE_name,PORT);
+$db->connect();
 $connection = $db->getConnection();
